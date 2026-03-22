@@ -18,12 +18,35 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 const queryClient = new QueryClient();
+
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div
+      className="fixed top-0 left-0 h-[3px] bg-primary z-[9999] pointer-events-none transition-none"
+      style={{ width: `${progress}%` }}
+    />
+  );
+}
 
 function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
+      <ScrollProgressBar />
       <CustomCursor />
       <div className="min-h-screen flex flex-col bg-background">
         <Navbar />

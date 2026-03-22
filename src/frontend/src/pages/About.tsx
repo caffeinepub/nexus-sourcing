@@ -23,7 +23,7 @@ export function About() {
   useScrollAnimation();
 
   useEffect(() => {
-    document.title = "About — NEXUS Sourcing";
+    document.title = "About — NEXUS Trading Company";
   }, []);
 
   return (
@@ -40,15 +40,15 @@ export function About() {
             Driven by Results.
           </h1>
           <p className="reveal reveal-delay-2 text-lg text-muted-foreground max-w-2xl leading-relaxed font-body">
-            NEXUS Sourcing was founded on the belief that international trade
-            should be accessible, transparent, and efficient for businesses of
-            every size.
+            NEXUS Trading Company was founded on the belief that international
+            trade should be accessible, transparent, and efficient for
+            businesses of every size.
           </p>
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
             <p className="reveal text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-4 font-body">
               Our Story
@@ -59,8 +59,8 @@ export function About() {
             <div className="space-y-4">
               <p className="reveal reveal-delay-2 text-muted-foreground leading-relaxed font-body">
                 Founded over a decade ago by a team of seasoned trade
-                specialists, NEXUS Sourcing was built to bridge the gap between
-                international suppliers and businesses seeking reliable,
+                specialists, NEXUS Trading Company was built to bridge the gap
+                between international suppliers and businesses seeking reliable,
                 cost-effective procurement solutions.
               </p>
               <p className="reveal reveal-delay-3 text-muted-foreground leading-relaxed font-body">
@@ -71,25 +71,34 @@ export function About() {
               </p>
             </div>
           </div>
-          <div className="reveal reveal-delay-2 grid grid-cols-2 gap-4">
-            {[
-              { value: "10+", label: "Years in Operation" },
-              { value: "60+", label: "Countries Active" },
-              { value: "2,400+", label: "Verified Suppliers" },
-              { value: "94%", label: "Client Retention Rate" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-card border border-border p-6"
-              >
-                <div className="font-display font-black text-3xl text-primary mb-1">
-                  {item.value}
+          <div className="reveal reveal-delay-2 space-y-4">
+            <div className="rounded-xl overflow-hidden border border-border">
+              <img
+                src="/assets/generated/business-handshake.dim_800x600.jpg"
+                alt="Business partnership handshake"
+                className="w-full h-56 object-cover"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "10+", label: "Years in Operation" },
+                { value: "60+", label: "Countries Active" },
+                { value: "2,400+", label: "Verified Suppliers" },
+                { value: "94%", label: "Client Retention Rate" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-red-glow-sm transition-all duration-300"
+                >
+                  <div className="font-display font-black text-3xl text-primary mb-1">
+                    {item.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider font-body">
+                    {item.label}
+                  </div>
                 </div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider font-body">
-                  {item.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -122,7 +131,7 @@ export function About() {
           {values.map((v, i) => (
             <div
               key={v.title}
-              className={`reveal reveal-delay-${i + 1} group bg-card border border-border p-8 transition-all duration-250 hover:-translate-y-1 hover:border-primary hover:shadow-red-glow`}
+              className={`reveal reveal-delay-${i + 1} group bg-gradient-to-br from-card to-card/60 border border-border rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-red-glow`}
             >
               <div className="w-8 h-px bg-primary mb-6 transition-all duration-200 group-hover:w-14" />
               <h3 className="font-display font-semibold text-xl text-foreground mb-4">

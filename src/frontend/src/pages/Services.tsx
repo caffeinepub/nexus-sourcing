@@ -89,7 +89,7 @@ export function Services() {
   useScrollAnimation();
 
   useEffect(() => {
-    document.title = "Services — NEXUS Sourcing";
+    document.title = "Services — NEXUS Trading Company";
   }, []);
 
   return (
@@ -112,13 +112,28 @@ export function Services() {
         </div>
       </section>
 
+      {/* Warehouse banner */}
+      <div className="reveal relative w-full h-56 sm:h-72 overflow-hidden">
+        <img
+          src="/assets/generated/warehouse-containers.dim_800x600.jpg"
+          alt="Warehouse and shipping containers"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-primary/20" />
+        <div className="absolute inset-0 flex items-center px-8 sm:px-16">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground">
+            End-to-End Trade Solutions
+          </h2>
+        </div>
+      </div>
+
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <div
               key={s.title}
               data-ocid={`services.item.${i + 1}`}
-              className={`reveal reveal-delay-${(i % 3) + 1} group bg-card border border-border p-8 transition-all duration-250 hover:-translate-y-1 hover:border-primary hover:shadow-red-glow`}
+              className={`reveal reveal-delay-${(i % 3) + 1} group bg-card border border-border rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-red-glow`}
             >
               <s.icon size={24} className="text-primary mb-5" />
               <h3 className="font-display font-semibold text-xl text-foreground mb-3">
@@ -133,7 +148,9 @@ export function Services() {
                     key={f}
                     className="flex items-center gap-2 text-xs text-muted-foreground font-body"
                   >
-                    <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold border border-primary/20 shrink-0">
+                      ✓
+                    </span>
                     {f}
                   </li>
                 ))}
@@ -155,7 +172,7 @@ export function Services() {
           <Link
             to="/contact"
             data-ocid="services.cta.primary_button"
-            className="reveal reveal-delay-2 inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-[1.03]"
+            className="reveal reveal-delay-2 inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-[1.03] rounded-lg"
           >
             Submit Your Inquiry
           </Link>

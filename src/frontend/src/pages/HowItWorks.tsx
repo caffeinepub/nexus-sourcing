@@ -57,7 +57,7 @@ export function HowItWorks() {
   useScrollAnimation();
 
   useEffect(() => {
-    document.title = "How It Works — NEXUS Sourcing";
+    document.title = "How It Works — NEXUS Trading Company";
   }, []);
 
   return (
@@ -85,7 +85,7 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[200px_1fr] gap-8 py-12 border-b border-border last:border-0 transition-all duration-200 hover:pl-2`}
+              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[200px_1fr] gap-8 py-12 border-b border-border last:border-0 transition-all duration-300 hover:pl-2`}
             >
               <div className="flex items-start gap-4">
                 <span className="font-display font-black text-6xl text-border group-hover:text-primary/30 transition-colors duration-300 leading-none select-none">
@@ -93,7 +93,7 @@ export function HowItWorks() {
                 </span>
               </div>
               <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
-                <div>
+                <div className="rounded-xl bg-card/30 px-6 py-4 border border-border/50 group-hover:border-primary/30 transition-colors duration-300">
                   <h2 className="font-display font-bold text-2xl sm:text-3xl text-foreground mb-4">
                     {step.title}
                   </h2>
@@ -107,7 +107,9 @@ export function HowItWorks() {
                       key={d}
                       className="flex items-center gap-2 text-xs text-muted-foreground font-body"
                     >
-                      <span className="w-4 h-px bg-primary shrink-0" />
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold border border-primary/20 shrink-0 leading-none">
+                        ›
+                      </span>
                       {d}
                     </li>
                   ))}
@@ -127,7 +129,7 @@ export function HowItWorks() {
             <Link
               to="/contact"
               data-ocid="how.primary_button"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-[1.03]"
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-[1.03] rounded-lg"
             >
               Submit an Inquiry
             </Link>

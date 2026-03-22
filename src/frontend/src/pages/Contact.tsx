@@ -28,7 +28,7 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    document.title = "Contact — NEXUS Sourcing";
+    document.title = "Contact — NEXUS Trading Company";
   }, []);
 
   const handleChange = (
@@ -80,10 +80,10 @@ export function Contact() {
                         Email
                       </p>
                       <a
-                        href="mailto:info@nexussourcing.com"
+                        href="mailto:contact@nexustrading.com.pk"
                         className="text-sm text-foreground hover:text-primary transition-colors font-body"
                       >
-                        info@nexussourcing.com
+                        contact@nexustrading.com.pk
                       </a>
                     </div>
                   </li>
@@ -94,10 +94,10 @@ export function Contact() {
                         Phone
                       </p>
                       <a
-                        href="tel:+18000000000"
+                        href="tel:+923001352214"
                         className="text-sm text-foreground hover:text-primary transition-colors font-body"
                       >
-                        +1 (800) 000-0000
+                        +92 300 1352214
                       </a>
                     </div>
                   </li>
@@ -111,9 +111,9 @@ export function Contact() {
                         Office
                       </p>
                       <p className="text-sm text-foreground font-body">
-                        1 Trade Center Plaza
+                        Shop 19, Basement Madina Bara Center
                         <br />
-                        New York, NY 10007
+                        Shah Alam Market, Lahore, Pakistan
                       </p>
                     </div>
                   </li>
@@ -128,11 +128,11 @@ export function Contact() {
                   </span>
                   <br />
                   Available:{" "}
-                  <span className="text-foreground">Mon–Fri, 9am–6pm EST</span>
+                  <span className="text-foreground">Mon–Fri, 9am–6pm PKT</span>
                 </p>
               </div>
 
-              <div className="border border-border p-5">
+              <div className="border border-border rounded-xl p-5">
                 <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 font-body">
                   WhatsApp
                 </p>
@@ -140,11 +140,11 @@ export function Contact() {
                   For urgent inquiries, reach us directly on WhatsApp.
                 </p>
                 <a
-                  href="https://wa.me/1234567890"
+                  href="https://wa.me/923001352214"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-ocid="contact.whatsapp.button"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all duration-200 hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all duration-200 hover:scale-[1.02] rounded-lg"
                   style={{ backgroundColor: "#25D366", color: "white" }}
                 >
                   Chat on WhatsApp
@@ -190,7 +190,7 @@ export function Contact() {
                       onChange={handleChange}
                       placeholder="John Smith"
                       data-ocid="contact.input"
-                      className="bg-card border-border focus:border-primary rounded-none"
+                      className="bg-card border-border focus:border-primary rounded-lg"
                     />
                   </div>
                   <div className="space-y-2">
@@ -208,7 +208,7 @@ export function Contact() {
                       onChange={handleChange}
                       placeholder="Acme Corp"
                       data-ocid="contact.input"
-                      className="bg-card border-border focus:border-primary rounded-none"
+                      className="bg-card border-border focus:border-primary rounded-lg"
                     />
                   </div>
                 </div>
@@ -229,7 +229,7 @@ export function Contact() {
                       onChange={handleChange}
                       placeholder="john@company.com"
                       data-ocid="contact.input"
-                      className="bg-card border-border focus:border-primary rounded-none"
+                      className="bg-card border-border focus:border-primary rounded-lg"
                     />
                   </div>
                   <div className="space-y-2">
@@ -245,9 +245,9 @@ export function Contact() {
                       type="tel"
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+92 300 0000000"
                       data-ocid="contact.input"
-                      className="bg-card border-border focus:border-primary rounded-none"
+                      className="bg-card border-border focus:border-primary rounded-lg"
                     />
                   </div>
                 </div>
@@ -267,19 +267,54 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Describe the product(s) you need to source: specifications, quantity, target price, delivery timeline, destination country, etc."
                     data-ocid="contact.textarea"
-                    className="bg-card border-border focus:border-primary rounded-none resize-none"
+                    className="bg-card border-border focus:border-primary rounded-lg resize-none"
                   />
                 </div>
                 <Button
                   type="submit"
                   disabled={loading}
                   data-ocid="contact.submit_button"
-                  className="w-full sm:w-auto px-10 py-3 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 rounded-none transition-all duration-200 hover:scale-[1.02] disabled:opacity-60"
+                  className="w-full sm:w-auto px-10 py-3 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-all duration-200 hover:scale-[1.02] disabled:opacity-60"
                 >
                   {loading ? "Submitting..." : "Submit Inquiry"}
                 </Button>
               </form>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-24">
+        <div className="reveal">
+          <p className="text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-3 font-body">
+            Find Us
+          </p>
+          <h2 className="font-display font-bold text-2xl text-foreground mb-6">
+            Our Location
+          </h2>
+          <div className="rounded-xl overflow-hidden border border-border">
+            <iframe
+              src="https://maps.google.com/maps?q=NEXUS+Trading+Company,+Shop+19,+Basement+Madina+Bara+Center,+Shah+Alam+Market,+Lahore&output=embed"
+              width="100%"
+              height="380"
+              style={{ border: 0, display: "block" }}
+              loading="lazy"
+              title="NEXUS Trading Company Location — Shop 19, Basement Madina Bara Center, Shah Alam Market, Lahore"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="rounded-xl border border-primary/30 bg-card p-4 mt-4 flex items-start gap-3">
+            <MapPin size={20} className="text-primary mt-0.5 shrink-0" />
+            <div>
+              <p className="font-display font-semibold text-foreground text-sm mb-1">
+                NEXUS Trading Company
+              </p>
+              <p className="text-foreground text-sm font-semibold font-body">
+                Shop 19, Basement Madina Bara Center, Shah Alam Market, Lahore,
+                Pakistan
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -44,12 +44,11 @@ export function Navbar() {
           className="flex items-center gap-2 group"
           data-ocid="nav.link"
         >
-          <span className="text-xl font-black tracking-[0.2em] font-display text-foreground group-hover:text-primary transition-colors duration-200">
-            NEX<span className="text-primary">US</span>
-          </span>
-          <span className="hidden sm:block text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
-            Sourcing
-          </span>
+          <img
+            src="/assets/uploads/NEXUS-logo-White-1.png"
+            alt="NEXUS Trading Company"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-1">
@@ -83,7 +82,7 @@ export function Navbar() {
         <Link
           to="/contact"
           data-ocid="nav.primary_button"
-          className="hidden lg:inline-flex items-center px-4 py-2 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-[1.02]"
+          className="hidden lg:inline-flex items-center px-4 py-2 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-[1.02] rounded-lg"
         >
           Request a Quote
         </Link>
@@ -100,7 +99,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-card border-b border-border">
+        <div className="lg:hidden bg-card/95 backdrop-blur-md border-b border-border rounded-b-2xl shadow-lg">
           <ul className="flex flex-col py-4">
             {links.map((link) => {
               const active = pathname === link.href;
@@ -124,7 +123,7 @@ export function Navbar() {
               <Link
                 to="/contact"
                 data-ocid="nav.primary_button"
-                className="block text-center py-2 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground"
+                className="block text-center py-2 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground rounded-lg"
               >
                 Request a Quote
               </Link>

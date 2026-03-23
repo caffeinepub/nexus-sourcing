@@ -11,8 +11,6 @@ const footerLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const hostname =
-    typeof window !== "undefined" ? window.location.hostname : "";
 
   return (
     <footer className="bg-card border-t border-border mt-auto">
@@ -69,18 +67,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 pt-6 border-t border-border">
           <p className="text-xs text-muted-foreground">
             &copy; {year} NEXUS Trading Company. All rights reserved.
           </p>
-          <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(hostname)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200"
-          >
-            Built with ♥ using caffeine.ai
-          </a>
         </div>
       </div>
     </footer>

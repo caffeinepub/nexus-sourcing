@@ -156,12 +156,12 @@ export function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background image */}
         <img
-          src="/assets/generated/hero-shipping-port.dim_1600x900.jpg"
-          alt="Shipping port at night"
+          src="/assets/generated/hero-shipping-port-bright.dim_1600x900.jpg"
+          alt="Shipping port at golden hour"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/40" />
         {/* Grid overlay */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -215,12 +215,12 @@ export function Home() {
           <p className="reveal text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-6 font-body">
             Import · Export · Sourcing
           </p>
-          <h1 className="reveal reveal-delay-1 font-display font-extrabold text-5xl sm:text-6xl lg:text-8xl leading-none tracking-tight mb-8">
+          <h1 className="reveal reveal-delay-1 font-display font-extrabold leading-none tracking-tight mb-8 text-white">
             GLOBAL SOURCING.
             <br />
             <span className="text-primary">DELIVERED.</span>
           </h1>
-          <p className="reveal reveal-delay-2 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-12 font-body">
+          <p className="reveal reveal-delay-2 text-lg sm:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed mb-12 font-body">
             NEXUS Trading Company connects businesses to verified global
             suppliers — managing every step from sourcing to delivery with
             precision and full transparency.
@@ -236,7 +236,7 @@ export function Home() {
             <Link
               to="/contact"
               data-ocid="home.secondary_button"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase border border-border text-foreground hover:border-primary hover:text-primary transition-all duration-200 rounded-lg"
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase border border-white/40 text-white hover:border-primary hover:text-primary transition-all duration-200 rounded-lg"
             >
               Submit Inquiry
             </Link>
@@ -244,10 +244,10 @@ export function Home() {
         </div>
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-          <span className="text-xs tracking-[0.3em] uppercase font-body text-muted-foreground">
+          <span className="text-xs tracking-[0.3em] uppercase font-body text-white">
             Scroll
           </span>
-          <div className="w-px h-10 bg-gradient-to-b from-muted-foreground to-transparent" />
+          <div className="w-px h-10 bg-gradient-to-b from-white to-transparent" />
         </div>
       </section>
 
@@ -257,7 +257,7 @@ export function Home() {
           <p className="text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-2 font-body">
             Our DNA
           </p>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-foreground">
+          <h2 className="font-display font-bold text-foreground">
             The Values Behind NEXUS
           </h2>
         </div>
@@ -270,7 +270,7 @@ export function Home() {
               <span className="block font-display font-black text-3xl text-primary leading-none mb-2">
                 {v.letter}
               </span>
-              <h3 className="font-display font-semibold text-sm text-foreground mb-2">
+              <h3 className="font-display font-semibold text-foreground mb-2">
                 {v.name}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed font-body">
@@ -308,7 +308,7 @@ export function Home() {
           <p className="text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-3 font-body">
             What We Do
           </p>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground">
+          <h2 className="font-display font-bold text-foreground">
             Comprehensive Sourcing Services
           </h2>
         </div>
@@ -320,7 +320,7 @@ export function Home() {
             >
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-t-xl" />
               <div className="w-8 h-px bg-primary mb-5 transition-all duration-200 group-hover:w-12" />
-              <h3 className="font-display font-semibold text-base text-foreground mb-3">
+              <h3 className="font-display font-semibold text-foreground mb-3">
                 {s.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-body">
@@ -345,16 +345,16 @@ export function Home() {
         {/* Global network image banner */}
         <div className="relative w-full h-64 sm:h-80 overflow-hidden">
           <img
-            src="/assets/generated/global-network-map.dim_1200x600.jpg"
-            alt="Global trade network"
+            src="/assets/generated/pakistan-trade-hub.dim_1200x600.jpg"
+            alt="Pakistan trade hub - Karachi port"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
             <p className="text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-3 font-body">
               Our Advantage
             </p>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground">
+            <h2 className="font-display font-bold text-white">
               Why Businesses Choose NEXUS
             </h2>
           </div>
@@ -368,7 +368,7 @@ export function Home() {
                   className={`reveal reveal-delay-${i + 1} group bg-card/50 border border-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-red-glow`}
                 >
                   <div className="w-8 h-px bg-primary mb-4 transition-all duration-200 group-hover:w-14" />
-                  <h3 className="font-display font-semibold text-lg text-foreground mb-2">
+                  <h3 className="font-display font-semibold text-foreground mb-2">
                     {d.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed font-body">
@@ -397,14 +397,14 @@ export function Home() {
             className="absolute inset-0 opacity-5 rounded-2xl"
             style={{
               backgroundImage:
-                "radial-gradient(oklch(0.577 0.245 27.325) 1px, transparent 1px)",
+                "radial-gradient(oklch(0.505 0.235 27) 1px, transparent 1px)",
               backgroundSize: "30px 30px",
             }}
           />
           <p className="relative text-xs font-semibold tracking-[0.4em] uppercase text-primary mb-4 font-body">
             Ready to Source?
           </p>
-          <h2 className="relative font-display font-bold text-3xl sm:text-4xl text-foreground mb-6">
+          <h2 className="relative font-display font-bold text-foreground mb-6">
             Start Your Sourcing Journey Today
           </h2>
           <p className="relative text-muted-foreground mb-10 max-w-xl mx-auto font-body">

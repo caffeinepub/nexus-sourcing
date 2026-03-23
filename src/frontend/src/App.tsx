@@ -1,7 +1,12 @@
 import { CustomCursor } from "@/components/CustomCursor";
 import { Footer } from "@/components/Footer";
+import { GoToTop } from "@/components/GoToTop";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { Navbar } from "@/components/Navbar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { useTheme } from "@/context/ThemeContext";
 import { About } from "@/pages/About";
 import { Contact } from "@/pages/Contact";
 import { Home } from "@/pages/Home";
@@ -17,8 +22,9 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  useRouterState,
 } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const queryClient = new QueryClient();
 
@@ -43,12 +49,50 @@ function ScrollProgressBar() {
   );
 }
 
+function ScrollAndLoadManager({
+  onNavigate,
+}: {
+  onNavigate: () => void;
+}) {
+  const routerState = useRouterState();
+  const pathname = routerState.location.pathname;
+  const prevPathRef = useRef(pathname);
+  const isFirst = useRef(true);
+
+  useEffect(() => {
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
+    if (prevPathRef.current !== pathname) {
+      prevPathRef.current = pathname;
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      onNavigate();
+    }
+  });
+
+  return null;
+}
+
 function RootLayout() {
+  const [loading, setLoading] = useState(true);
+  const { isTransitioning } = useTheme();
+
+  const handleNavigate = () => {
+    setLoading(true);
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
+      {loading && <LoadingScreen onDone={() => setLoading(false)} />}
       <ScrollProgressBar />
+      <ScrollAndLoadManager onNavigate={handleNavigate} />
       <CustomCursor />
-      <div className="min-h-screen flex flex-col bg-background">
+      <div
+        className={`min-h-screen flex flex-col bg-background${
+          isTransitioning ? " earthquake" : ""
+        }`}
+      >
         <Navbar />
         <div className="flex-1">
           <Outlet />
@@ -56,6 +100,8 @@ function RootLayout() {
         <Footer />
       </div>
       <WhatsAppButton />
+      <GoToTop />
+      <ThemeToggle />
     </QueryClientProvider>
   );
 }
@@ -115,9 +161,12 @@ declare module "@tanstack/react-router" {
   }
 }
 
-// Suppress unused import warning — Link is used implicitly via TanStack Router
 void Link;
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }

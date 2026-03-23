@@ -1,3 +1,4 @@
+import { useTheme } from "@/context/ThemeContext";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -18,6 +19,7 @@ export function Navbar() {
   const routerState = useRouterState();
   const pathname = routerState.location.pathname;
   const prevPathRef = useRef(pathname);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -45,7 +47,11 @@ export function Navbar() {
           data-ocid="nav.link"
         >
           <img
-            src="/assets/uploads/NEXUS-logo-White-1.png"
+            src={
+              isDark
+                ? "/assets/uploads/NEXUS-logo-White-1.png"
+                : "/assets/uploads/NEXUS-logo-1.png"
+            }
             alt="NEXUS Trading Company"
             className="h-10 w-auto object-contain"
           />

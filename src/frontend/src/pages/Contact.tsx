@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { CheckCircle, Mail, MapPin, Phone } from "lucide-react";
+import { AlertCircle, CheckCircle, Mail, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type FormState = {
@@ -26,6 +26,7 @@ export function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     document.title = "Contact — NEXUS Trading Company";
@@ -37,13 +38,43 @@ export function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setError("");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          // Replace with your key from https://web3forms.com (free, no sign-up required)
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          subject: "New Inquiry from NEXUS Trading Website",
+          from_name: form.name,
+          name: form.name,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          requirement: form.requirement,
+          to_email: "afaq@nexustrading.com.pk",
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(
+          "Submission failed. Please try again or contact us via WhatsApp.",
+        );
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+    }
   };
 
   return (
@@ -167,6 +198,17 @@ export function Contact() {
                   Thank you. A member of our sourcing team will respond to your
                   inquiry within 24 business hours.
                 </p>
+                <p className="text-xs text-muted-foreground font-body mt-6 opacity-60">
+                  Powered by{" "}
+                  <a
+                    href="https://web3forms.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-primary transition-colors"
+                  >
+                    Web3Forms
+                  </a>
+                </p>
               </div>
             ) : (
               <form
@@ -270,14 +312,41 @@ export function Contact() {
                     className="bg-card border-border focus:border-primary rounded-lg resize-none"
                   />
                 </div>
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  data-ocid="contact.submit_button"
-                  className="w-full sm:w-auto px-10 py-3 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-all duration-200 hover:scale-[1.02] disabled:opacity-60"
-                >
-                  {loading ? "Submitting..." : "Submit Inquiry"}
-                </Button>
+
+                {error && (
+                  <div
+                    data-ocid="contact.error_state"
+                    className="flex items-start gap-3 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3"
+                  >
+                    <AlertCircle
+                      size={16}
+                      className="text-red-400 mt-0.5 shrink-0"
+                    />
+                    <p className="text-sm text-red-400 font-body">{error}</p>
+                  </div>
+                )}
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    data-ocid="contact.submit_button"
+                    className="w-full sm:w-auto px-10 py-3 text-xs font-semibold tracking-[0.15em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg transition-all duration-200 hover:scale-[1.02] disabled:opacity-60"
+                  >
+                    {loading ? "Submitting..." : "Submit Inquiry"}
+                  </Button>
+                  <p className="text-xs text-muted-foreground font-body opacity-60">
+                    Powered by{" "}
+                    <a
+                      href="https://web3forms.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-primary transition-colors"
+                    >
+                      Web3Forms
+                    </a>
+                  </p>
+                </div>
               </form>
             )}
           </div>

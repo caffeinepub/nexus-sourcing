@@ -85,10 +85,14 @@ export function About() {
                   src={
                     isDark
                       ? "/assets/uploads/Afaq-Signature-White-1.png"
-                      : "/assets/uploads/Afaq-Signature-Black-2.png"
+                      : "/assets/uploads/layer_1-019d1e54-2aaf-7068-98be-dfdc5b55f8b3-1.jpg"
                   }
                   alt="Afaq Mehdi signature"
-                  className="h-16 object-contain mb-3 opacity-90"
+                  className="h-16 object-contain mb-3"
+                  style={{
+                    mixBlendMode: isDark ? "screen" : "multiply",
+                    opacity: 0.9,
+                  }}
                 />
                 <p className="font-display font-bold text-lg text-foreground">
                   Afaq Mehdi
